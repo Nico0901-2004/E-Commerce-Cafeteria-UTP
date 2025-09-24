@@ -1,0 +1,7 @@
+<div class="sidebar">
+    <nav class="nav flex-column">
+        <button *ngFor="let category of categories" class="nav-link" (click)="selectCategory(category)" [class.active]="category === selectedCategory">
+      {{ category }}
+    </button>
+    </nav>
+</div>

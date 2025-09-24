@@ -1,0 +1,94 @@
+/* Contenedor general para todo el catálogo */
+
+.catalogo-container {
+    display: flex;
+    padding-top: 70px;
+    /* Ajustamos para que el contenido quede debajo del header */
+    gap: 20px;
+    /* Añadir un pequeño espacio entre el sidebar y el contenedor de productos */
+}
+
+
+/* Contenedor para los productos, ahora con el margen adecuado para separar las tarjetas del sidebar */
+
+.product-container-wrapper {
+    flex: 1;
+    /* Ocupa todo el espacio restante disponible */
+    margin-left: 20px;
+    /* Añadimos un margen para separar las tarjetas del sidebar */
+}
+
+
+/* En el contenedor de los productos, configuramos un grid con 3 columnas */
+
+.product-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    /* Espaciado entre las tarjetas */
+    margin-top: 20px;
+    /* Espacio por encima del contenedor de productos */
+}
+
+
+/* Si el contenedor se hace más pequeño (por ejemplo, en pantallas móviles), cambiamos a 2 columnas */
+
+@media (max-width: 768px) {
+    .product-container {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 columnas en pantallas más pequeñas */
+    }
+}
+
+
+/* Para pantallas aún más pequeñas (móviles), usamos una sola columna */
+
+@media (max-width: 480px) {
+    .product-container {
+        grid-template-columns: 1fr;
+        /* 1 columna en pantallas muy pequeñas */
+    }
+}
+
+
+/* Estilo para cada categoría y su título */
+
+.product-container-wrapper h2 {
+    text-transform: uppercase;
+    /* Convertir el texto a mayúsculas */
+    font-size: 2rem;
+    /* Hacer el texto más grande */
+    font-weight: bold;
+    /* Hacer que el texto sea negrita */
+    margin-bottom: 20px;
+    /* Separación entre el título y los productos */
+    color: #7F4840;
+    /* Color que coincide con el estilo de las categorías */
+    margin-top: 15px;
+}
+
+
+/* Estilo para la línea horizontal debajo del título */
+
+.product-container-wrapper hr {
+    margin: 10px 0;
+    border-top: 2px solid #ddd;
+}
+
+
+/* Ajustes generales para el header */
+
+app-header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #343a40;
+    color: white;
+    padding: 15px;
+    z-index: 999;
+}
+
+app-header h1 {
+    margin: 0;
+}

@@ -1,0 +1,55 @@
+/* Estilos para el sidebar */
+
+.nav {
+    background-color: #f8f9fa;
+    width: 300px;
+    height: 60vh;
+    /* Asegura que el sidebar ocupe toda la altura de la ventana */
+    padding: 20px;
+    box-sizing: border-box;
+    /* Para incluir el padding en el cálculo del ancho */
+}
+
+
+/* Estilo para los enlaces */
+
+.nav-link {
+    color: #7F4840;
+    /* Color para los enlaces */
+    font-weight: bold;
+    padding: 15px 20px;
+    /* Aumentamos el padding para que los enlaces tengan más espacio */
+    font-size: 1.5rem;
+    /* Aumentamos el tamaño de la fuente */
+    margin-bottom: 10px;
+    /* Añadimos un pequeño margen entre los enlaces */
+    border-radius: 5px;
+    /* Borde redondeado para los enlaces */
+    transition: background-color 0.3s ease;
+}
+
+
+/* Estilo para los enlaces activos */
+
+.nav-link.active {
+    background-color: #7F4840;
+    color: white;
+}
+
+
+/* Hover para los enlaces */
+
+.nav-link:hover {
+    background-color: #6b3b33;
+    /* Color al pasar el mouse */
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .nav-link {
+        font-size: 1.2rem;
+        /* Reduce el tamaño de la fuente en pantallas más pequeñas */
+        padding: 12px 15px;
+        /* Ajusta el padding para que los enlaces no se vean demasiado grandes */
+    }
+}

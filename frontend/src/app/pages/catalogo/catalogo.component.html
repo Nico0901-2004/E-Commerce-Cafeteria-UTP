@@ -1,1 +1,16 @@
-<p>catalogo works!</p>
+<app-header></app-header>
+
+<div class="catalogo-container">
+    <!-- Sidebar -->
+    <app-sidebar (categorySelected)="onCategorySelected($event)"></app-sidebar>
+
+    <!-- Contenedor de productos -->
+    <div class="product-container-wrapper">
+        <h2>{{ selectedCategory }}
+            <hr>
+        </h2>
+        <div class="product-container">
+            <app-product-card *ngFor="let product of getProductsByCategory(selectedCategory)" [product]="product"></app-product-card>
+        </div>
+    </div>
+</div>
