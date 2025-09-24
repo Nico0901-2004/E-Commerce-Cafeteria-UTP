@@ -1,0 +1,129 @@
+/* Cambiar el color de fondo */
+
+.navbar {
+    background-color: #7F4840 !important;
+    /* Fondo marrón claro */
+}
+
+
+/* Mejorar el tamaño del texto en los enlaces */
+
+.navbar-brand {
+    font-size: 2rem;
+    /* Aumentar el tamaño de la fuente del logo */
+    color: #fff !important;
+    /* Asegurar que el logo sea blanco */
+}
+
+.navbar-nav .nav-link {
+    font-size: 1.25rem;
+    /* Aumentar el tamaño de los enlaces */
+    color: #fff !important;
+    /* Asegurarse de que los enlaces sean blancos */
+}
+
+.navbar-nav .nav-link:hover {
+    color: #f8f9fa;
+    /* Color cuando el enlace se pasa el ratón por encima */
+}
+
+
+/* Mejorar los íconos */
+
+.nav-link i {
+    font-size: 1.75rem;
+    /* Aumentar el tamaño de los íconos */
+    color: #fff;
+    /* Hacer los íconos blancos para que contrasten con el fondo */
+}
+
+
+/* Asegurarse de que los elementos del navbar estén más juntos y pegados al lado derecho */
+
+.navbar-nav.ms-auto {
+    margin-left: auto;
+    /* Asegura que los íconos estén pegados al lado derecho */
+    padding-left: 0;
+    /* Elimina cualquier relleno adicional que pueda existir a la izquierda */
+}
+
+
+/* Mejorar la barra de búsqueda */
+
+.form-control {
+    width: 250px;
+    /* Ajustar el ancho de la barra de búsqueda */
+}
+
+
+/* Mejorar los íconos */
+
+.navbar-nav .nav-item {
+    margin-left: 15px;
+    /* Este es el espacio entre los íconos */
+}
+
+.navbar-nav .nav-item:last-child {
+    margin-right: 0;
+    /* Elimina cualquier margen a la derecha del último ícono */
+}
+
+
+/* Evitar que el dropdown se desborde fuera del navbar */
+
+.navbar-nav .dropdown-menu {
+    max-height: 300px;
+    /* Limitar la altura del dropdown */
+    overflow-y: auto;
+    /* Añadir scroll si el contenido es mayor que la altura */
+    position: absolute;
+    /* Asegurar que el dropdown no se desborde */
+    right: 0;
+    /* Asegurar que el dropdown esté alineado con el lado derecho */
+    left: auto;
+    /* Evitar que se desborde hacia la izquierda */
+}
+
+
+/* Asegurarse de que el dropdown se vea correctamente en pantallas pequeñas */
+
+@media (max-width: 767px) {
+    .navbar-nav .dropdown-menu {
+        position: static;
+        /* Para evitar que se desplace fuera del contenedor */
+        min-width: 100%;
+        /* Asegurar que el dropdown ocupe todo el ancho disponible */
+        background-color: #7F4840;
+        /* Para que el fondo del dropdown coincida con el navbar */
+    }
+    .navbar-nav .dropdown-toggle::after {
+        content: none;
+        /* Eliminar el ícono de la flecha hacia abajo en dispositivos móviles */
+    }
+}
+
+
+/* header.component.css */
+
+nav.navbar {
+    position: fixed;
+    /* Fija el header en la parte superior */
+    top: 0;
+    /* Lo coloca en la parte superior de la pantalla */
+    left: 0;
+    /* Asegura que esté alineado a la izquierda */
+    width: 100%;
+    /* Ocupa todo el ancho de la pantalla */
+    z-index: 1000;
+    /* Asegura que el header esté encima de otros elementos */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Añadir sombra ligera para darle profundidad */
+}
+
+
+/* Añadir un margen superior al contenido para que no se superponga al header fijo */
+
+body {
+    padding-top: 60px;
+    /* Ajusta este valor si el header es más alto */
+}

@@ -1,0 +1,131 @@
+<app-header></app-header>
+<div id="carouselExampleIndicators" class="carousel slide">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="https://www.menuspararestaurantes.com/wp-content/uploads/2022/12/promociones-en-tu-restaurante-combos2.jpg" class="d-block w-100" alt="..." style="height: 400px; object-fit: cover;">
+        </div>
+        <div class="carousel-item">
+            <img src="https://www.menuspararestaurantes.com/wp-content/uploads/2022/12/promociones-en-tu-restaurante-combos2.jpg" class="d-block w-100" alt="..." style="height: 400px; object-fit: cover;">
+        </div>
+        <div class="carousel-item">
+            <img src="https://www.menuspararestaurantes.com/wp-content/uploads/2022/12/promociones-en-tu-restaurante-combos2.jpg" class="d-block w-100" alt="..." style="height: 400px; object-fit: cover;">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+<!-- Sección de Categorías -->
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <!-- Bebidas -->
+        <div class="col-6 col-sm-4 col-md-2 mb-4">
+            <a href="/bebidas" class="category-link">
+                <div class="icon-circle mb-2">
+                    <i class="bi bi-cup"></i>
+                    <!-- Icono de bebida -->
+                </div>
+                <h5>Bebidas</h5>
+            </a>
+        </div>
+
+        <!-- Sánguches -->
+        <div class="col-6 col-sm-4 col-md-2 mb-4">
+            <a href="/sanguches" class="category-link">
+                <div class="icon-circle mb-2">
+                    <i class="bi bi-basket-fill"></i>
+                    <!-- Icono de sanguches -->
+                </div>
+                <h5>Sánguches</h5>
+            </a>
+        </div>
+
+        <!-- Comidas -->
+        <div class="col-6 col-sm-4 col-md-2 mb-4">
+            <a href="/comidas" class="category-link">
+                <div class="icon-circle mb-2">
+                    <i class="bi bi-egg-fried"></i>
+                    <!-- Icono de comida -->
+                </div>
+                <h5>Comidas</h5>
+            </a>
+        </div>
+
+        <!-- Postres -->
+        <div class="col-6 col-sm-4 col-md-2 mb-4">
+            <a href="/postres" class="category-link">
+                <div class="icon-circle mb-2">
+                    <i class="bi bi-cupcake"></i>
+                    <!-- Icono de postres -->
+                </div>
+                <h5>Postres</h5>
+            </a>
+        </div>
+
+        <!-- Snacks -->
+        <div class="col-6 col-sm-4 col-md-2 mb-4">
+            <a href="/snacks" class="category-link">
+                <div class="icon-circle mb-2">
+                    <i class="bi bi-patch-check"></i>
+                    <!-- Icono de snacks -->
+                </div>
+                <h5>Snacks</h5>
+            </a>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<!-- Sección de productos para Bebidas -->
+<div class="container mt-5">
+    <h2>Bebidas <a href="/bebidas" class="btn btn-ver-mas">Ver más</a></h2>
+    <div class="product-scroll-container" style="overflow-x: auto; white-space: nowrap;">
+        <app-product-card *ngFor="let product of bebidas" [product]="product" style="display: inline-block; margin-right: 15px;"></app-product-card>
+    </div>
+</div>
+
+<!-- Sección de productos para Bebidas -->
+<div class="container mt-5">
+    <h2>Bebidas <a href="/bebidas" class="btn btn-ver-mas">Ver más</a></h2>
+    <div class="product-scroll-container" style="overflow-x: auto; white-space: nowrap;">
+        <app-product-card *ngFor="let product of bebidas" [product]="product" style="display: inline-block; margin-right: 15px;"></app-product-card>
+    </div>
+</div>
+
+<!-- Sección de productos para Bebidas -->
+<div class="container mt-5">
+    <h2>Bebidas <a href="/bebidas" class="btn btn-ver-mas">Ver más</a></h2>
+    <div class="product-scroll-container" style="overflow-x: auto; white-space: nowrap;">
+        <app-product-card *ngFor="let product of bebidas" [product]="product" style="display: inline-block; margin-right: 15px;"></app-product-card>
+    </div>
+</div>
+
+<!-- Sección de productos para Bebidas -->
+<div class="container mt-5">
+    <h2>Bebidas <a href="/bebidas" class="btn btn-ver-mas">Ver más</a></h2>
+    <div class="product-scroll-container" style="overflow-x: auto; white-space: nowrap;">
+        <app-product-card *ngFor="let product of bebidas" [product]="product" style="display: inline-block; margin-right: 15px;"></app-product-card>
+    </div>
+</div>
+
+<!-- Sección de productos para Bebidas -->
+<div class="container mt-5">
+    <h2>Bebidas <a href="/bebidas" class="btn btn-ver-mas">Ver más</a></h2>
+    <div class="product-scroll-container" style="overflow-x: auto; white-space: nowrap;">
+        <app-product-card *ngFor="let product of bebidas" [product]="product" style="display: inline-block; margin-right: 15px;"></app-product-card>
+    </div>
+</div>
+
+
+<p>home works!</p>

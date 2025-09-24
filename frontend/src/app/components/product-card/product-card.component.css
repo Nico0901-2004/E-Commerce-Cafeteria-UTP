@@ -1,0 +1,98 @@
+/* Estilo para la tarjeta */
+
+.card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Estilo de la imagen */
+
+.card-img-top {
+    width: 100%;
+    height: 200px;
+    /* Ajusta la altura para que todas las imágenes tengan un tamaño uniforme */
+    object-fit: cover;
+    /* Ajusta la imagen para que se recorte adecuadamente */
+    border-bottom: 2px solid #f1f1f1;
+}
+
+
+/* Cuerpo de la tarjeta */
+
+.card-body {
+    padding: 20px;
+    text-align: center;
+}
+
+
+/* Título de la tarjeta */
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+}
+
+
+/* Texto de la tarjeta */
+
+.card-text {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 20px;
+    height: 60px;
+    /* Limita la altura del texto para que no ocupe demasiado espacio */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* Estilo del botón */
+
+.btn-primary {
+    background-color: #7F4840;
+    border-color: #7F4840;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    border-radius: 30px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+
+/* Efecto de hover en el botón */
+
+.btn-primary:hover {
+    background-color: #5f3330;
+    transform: translateY(-2px);
+    /* Efecto de "levantar" el botón */
+}
+
+
+/* Estilo cuando el botón está en focus */
+
+.btn-primary:focus {
+    box-shadow: 0 0 0 0.25rem rgba(127, 72, 64, 0.25);
+    outline: none;
+}
+
+
+/* Para pantallas pequeñas (responsividad) */
+
+@media (max-width: 576px) {
+    .card {
+        width: 100%;
+        margin: 0 auto;
+    }
+    .card-img-top {
+        height: 180px;
+    }
+}
