@@ -1,0 +1,53 @@
+<div class="login-wrapper">
+  <!-- Caja del formulario -->
+  <div class="login-container">
+    <!-- Logo -->
+    <div class="login-logo">
+      <img src="/utp.png" alt="Logo UTP">
+      <h2>CAFETÍN</h2>
+    </div>
+
+    <!-- Formulario -->
+    <form (ngSubmit)="onLogin()">
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email">Usuario</label>
+        <div class="input-icon">
+          <input 
+            type="email" 
+            id="email" 
+            [(ngModel)]="email" 
+            name="email" 
+            placeholder="Ingrese su correo" 
+            required 
+            class="form-control">
+          <i class="fas fa-user"></i>
+        </div>
+      </div>
+
+      <!-- Contraseña -->
+      <div class="form-group">
+        <label for="password">Contraseña</label>
+        <div class="input-icon">
+          <input 
+            type="password" 
+            id="password" 
+            [(ngModel)]="password" 
+            name="password" 
+            placeholder="Ingrese su contraseña" 
+            required 
+            class="form-control">
+          <i class="fas fa-lock"></i>
+        </div>
+      </div>
+
+      <!-- Botón -->
+      <button type="submit" class="btn-login">INGRESAR</button>
+    </form>
+  </div>
+
+  <!-- Imagen lateral -->
+  <div class="login-image">
+    <img src="/cafesito.jpg" alt="cafesito">
+  </div>
+</div>

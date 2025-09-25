@@ -16,9 +16,9 @@ import { Producto } from '../../models/Product';
 })
 
 export class CatalogoComponent implements OnInit {
-  categories: string[] = ['Bebidas', 'Sanguches', 'Comidas', 'Postres', 'Snacks'];
+  categories: string[] = ['Bebida', 'Sanguches', 'Comidas', 'Postres', 'Snacks'];
   products: Producto[] = [];
-  selectedCategory: string = 'Bebidas';  // Default category
+  selectedCategory: string = 'Bebida';  // Default category
   sidebarVisible: boolean = false;  // Default sidebar visibility
   
   constructor(private productService: ProductService) {}
