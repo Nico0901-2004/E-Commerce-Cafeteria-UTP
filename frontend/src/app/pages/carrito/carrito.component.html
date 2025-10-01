@@ -1,1 +1,36 @@
-<p>carrito works!</p>
+<div class="cart-page">
+  <h2>Mi Carrito</h2>
+
+  <div *ngIf="cartItems.length > 0; else empty">
+    <div class="cart-list">
+      <div class="cart-item" *ngFor="let item of cartItems">
+        <img [src]="item.image || 'assets/imgs/default.png'" alt="{{item.name}}">
+        <div class="item-info">
+          <h4>{{ item.name }}</h4>
+          <p>Precio: S/. {{ item.price }}</p>
+
+          <div class="qty-controls">
+            <button (click)="decrease(item)">-</button>
+            <input type="number" [(ngModel)]="item.quantity" (change)="onQtyChange(item)" min="1">
+            <button (click)="increase(item)">+</button>
+          </div>
+        </div>
+
+        <div class="item-right">
+          <div class="subtotal">S/. {{ item.price * item.quantity }}</div>
+          <button class="remove" (click)="remove(item)">Quitar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="cart-summary">
+      <h3>Total: S/. {{ total }}</h3>
+      <button class="checkout" (click)="checkout()">Finalizar compra</button>
+    </div>
+  </div>
+
+  <ng-template #empty>
+    <p>Tu carrito está vacío</p>
+    <a routerLink="/catalogo" class="btn-go">Ir al catálogo</a>
+  </ng-template>
+</div>
