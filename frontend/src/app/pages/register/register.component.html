@@ -1,0 +1,44 @@
+<div class="register-wrapper">
+  <div class="register-container card">
+    <h2>Crear cuenta</h2>
+
+    <form #f="ngForm" (ngSubmit)="submit(f)" novalidate>
+      <div class="form-group">
+        <label>Nombre completo</label>
+        <input type="text" name="fullName" [(ngModel)]="fullName" required minlength="3" />
+      </div>
+
+      <div class="form-group">
+        <label>Correo</label>
+        <input type="email" name="email" [(ngModel)]="email" required email />
+      </div>
+
+      <div class="form-group">
+        <label>Teléfono (opcional)</label>
+        <input type="text" name="phone" [(ngModel)]="phone" />
+      </div>
+
+      <div class="form-group">
+        <label>Contraseña</label>
+        <div class="input-icon">
+          <input [type]="showPass ? 'text' : 'password'" name="password" [(ngModel)]="password" required minlength="6" />
+          <button type="button" class="toggle-eye" (click)="showPass = !showPass" aria-label="Mostrar u ocultar contraseña">
+            <i class="fas" [class.fa-eye]="!showPass" [class.fa-eye-slash]="showPass"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Confirmar contraseña</label>
+        <input [type]="showPass ? 'text' : 'password'" name="confirm" [(ngModel)]="confirm" required />
+        <small class="hint" *ngIf="confirm && confirm !== password">Las contraseñas no coinciden</small>
+      </div>
+
+      <button class="btn-primary" [disabled]="f.invalid || password !== confirm || loading">
+        {{ loading ? 'Registrando…' : 'Registrarme' }}
+      </button>
+
+      <a class="btn-link" routerLink="/login">¿Ya tienes cuenta? Inicia sesión</a>
+    </form>
+  </div>
+</div>
