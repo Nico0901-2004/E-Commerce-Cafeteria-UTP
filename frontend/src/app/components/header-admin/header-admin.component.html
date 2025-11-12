@@ -1,0 +1,28 @@
+<nav class="admin-navbar">
+  <div class="admin-navbar-container">
+    <!-- LOGO -->
+    <div class="admin-logo">
+      <a routerLink="/admin/dashboardAdmin" class="logo-text">CAFETÍN Admin</a>
+    </div>
+
+    <!-- MENÚ PRINCIPAL -->
+    <div class="admin-links" [class.active]="menuOpen">
+      <a routerLink="/admin/dashboardAdmin" routerLinkActive="active-link" (click)="toggleMenu()">Dashboard</a>
+      <a routerLink="/admin/productosAdmin" routerLinkActive="active-link" (click)="toggleMenu()">Productos</a>
+      <a routerLink="/admin/pedidosAdmin" routerLinkActive="active-link" (click)="toggleMenu()">Pedidos</a>
+      <a routerLink="/admin/usuariosAdmin" routerLinkActive="active-link" (click)="toggleMenu()">Usuarios</a>
+    </div>
+
+    <!-- ICONO DE PERFIL O CERRAR SESIÓN -->
+    <div class="admin-actions">
+      <button class="logout-btn" (click)="logout()">Cerrar sesión</button>
+    </div>
+
+    <!-- BOTÓN MENÚ HAMBURGUESA -->
+    <div class="menu-toggle" (click)="toggleMenu()">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+  </div>
+</nav>

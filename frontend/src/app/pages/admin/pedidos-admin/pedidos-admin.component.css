@@ -1,0 +1,141 @@
+/* ===== CONTENEDOR PRINCIPAL ===== */
+    
+    .pedidos-container {
+        padding: 2rem;
+        background-color: #fff;
+        border-radius: 12px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        margin: 2rem auto;
+        max-width: 1200px;
+    }
+    /* ===== ENCABEZADO ===== */
+    
+    .pedidos-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+    
+    .pedidos-header h2 {
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: #7f4840;
+    }
+    /* ===== TABLA ===== */
+    
+    .table-responsive {
+        overflow-x: auto;
+    }
+    
+    .pedidos-table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    
+    .pedidos-table th,
+    .pedidos-table td {
+        padding: 12px;
+        border-bottom: 1px solid #ddd;
+        vertical-align: middle;
+    }
+    
+    .pedidos-table th {
+        background-color: #7f4840;
+        color: #fff;
+        font-weight: 600;
+    }
+    
+    .pedidos-table tr:hover {
+        background-color: #f8f8f8;
+    }
+    /* ===== ESTADOS ===== */
+    
+    .estado-listo {
+        color: #28a745;
+        font-weight: 600;
+    }
+    
+    .estado-entregado {
+        color: #007bff;
+        font-weight: 600;
+    }
+    /* ===== BOTONES ACCIONES ===== */
+    
+    .acciones button {
+        margin: 0 4px;
+        padding: 6px 10px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: all 0.2s ease;
+    }
+    
+    .btn-editar {
+        background-color: #ffc107;
+        color: #333;
+    }
+    
+    .btn-editar:hover {
+        background-color: #e0a800;
+    }
+    
+    .btn-eliminar {
+        background-color: #dc3545;
+        color: #fff;
+    }
+    
+    .btn-eliminar:hover {
+        background-color: #c82333;
+    }
+    /* ===== PAGINACIÓN ===== */
+    
+    .paginacion {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 1.5rem;
+    }
+    
+    .btn-pagina {
+        background-color: #7f4840;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 6px 12px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+    
+    .btn-pagina:hover {
+        background-color: #6b3b33;
+    }
+    
+    .btn-pagina:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+    }
+    /* ===== RESPONSIVE ===== */
+    
+    @media (max-width: 768px) {
+        .pedidos-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        .pedidos-header h2 {
+            font-size: 1.6rem;
+        }
+        .pedidos-table th,
+        .pedidos-table td {
+            padding: 8px;
+            font-size: 0.9rem;
+        }
+        .paginacion span {
+            font-size: 0.9rem;
+        }
+    }

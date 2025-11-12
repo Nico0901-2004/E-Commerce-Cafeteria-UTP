@@ -5,22 +5,24 @@ import { CommonModule } from '@angular/common';
 import { ProductCardComponent } from '../../components/product-card/product-card.component';
 import { ProductService } from '../../services/product.service';
 import { Producto } from '../../models/Product';
+import { ModalProductComponent } from '../../components/modal-product/modal-product.component';
+
+declare var bootstrap: any;
 
 @Component({
   selector: 'app-catalogo',
   standalone: true,
-  imports: [HeaderComponent, SidebarComponent, CommonModule, ProductCardComponent],
-  providers: [ProductService], // Aquí se provee el servicio
+  imports: [SidebarComponent, ModalProductComponent, CommonModule, ProductCardComponent],
+  providers: [ProductService],
   templateUrl: './catalogo.component.html',
-  styleUrl: './catalogo.component.css'
+  styleUrls: ['./catalogo.component.css']
 })
-
 export class CatalogoComponent implements OnInit {
-  categories: string[] = ['Bebida', 'Sanguches', 'Comidas', 'Postres', 'Snacks'];
+  categories = ['Bebida', 'Sanguches', 'Comidas', 'Postres', 'Snacks'];
   products: Producto[] = [];
-  selectedCategory: string = 'Bebida';  // Default category
-  sidebarVisible: boolean = false;  // Default sidebar visibility
-  
+  selectedCategory = 'Bebida';
+  selectedProduct!: Producto;
+
   constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
@@ -31,11 +33,16 @@ export class CatalogoComponent implements OnInit {
     this.selectedCategory = category;
   }
 
-  toggleSidebar(): void {
-    this.sidebarVisible = !this.sidebarVisible;
+  getProductsByCategory(category: string): Producto[] {
+    return this.products.filter(p => p.categoria === category);
   }
 
-  getProductsByCategory(category: string): Producto[] {
-    return this.products.filter(product => product.categoria === category);
-  }
+  openModal(product: Producto) {
+      this.selectedProduct = product;
+      const modalEl = document.getElementById('productModal');
+      if (modalEl) {
+        const modal = new bootstrap.Modal(modalEl);
+        modal.show();
+      }
+    }
 }

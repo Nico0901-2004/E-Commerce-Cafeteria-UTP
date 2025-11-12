@@ -1,0 +1,53 @@
+<div>
+    <div class="perfil-container">
+        <div class="perfil-card">
+            <div class="perfil-header">
+                <div class="perfil-foto">
+                    <img [src]="usuario.foto || 'assets/img/default-user.png'" alt="Foto de perfil">
+                </div>
+                <h2>{{ usuario.nombre }}</h2>
+                <p class="rol">{{ usuario.rol }}</p>
+            </div>
+
+            <div class="perfil-body">
+                <div class="info-section">
+                    <h3>Información Personal</h3>
+
+                    <div class="info-item">
+                        <span class="label">Nombre de usuario:</span>
+                        <span class="value">{{ usuario.username }}</span>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="label">Correo electrónico:</span>
+                        <span class="value">{{ usuario.email }}</span>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="label">Teléfono:</span>
+                        <span class="value">{{ usuario.telefono }}</span>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="label">Dirección:</span>
+                        <span class="value">{{ usuario.direccion }}</span>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="label">Fecha de registro:</span>
+                        <span class="value">{{ usuario.fechaRegistro | date }}</span>
+                    </div>
+                </div>
+
+                <div class="perfil-actions">
+                    <button class="btn editar" (click)="editarPerfil()">Editar Perfil</button>
+                    <button class="btn cerrar-sesion" (click)="cerrarSesion()">Cerrar Sesión</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de edición de perfil -->
+    <app-usuario-form-modal *ngIf="mostrarModal" [titulo]="'Editar Perfil'" [usuario]="usuario" (cerrar)="cerrarModal()" (guardar)="guardarUsuario($event)">
+    </app-usuario-form-modal>
+</div>

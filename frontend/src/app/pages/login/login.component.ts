@@ -1,57 +1,48 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { environment } from '../../../environments/environment'; // Ajusta la ruta según la ubicación real de environment.ts
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [
-    FormsModule,
-    HttpClientModule,
-    RouterModule // ✅ necesario para usar routerLink en la plantilla
-  ],
+  imports: [FormsModule, HttpClientModule, RouterModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
   email = '';
   password = '';
-  loading = false;
   showPass = false;
+  loading = false;
 
-  constructor(private router: Router, private http: HttpClient) {}
+  constructor(private router: Router) {}
 
   onLogin(f: any) {
-    if (f.invalid || this.loading) return;
+    if (f.invalid) return;
+
     this.loading = true;
 
-    this.http.post<any>(`${environment.apiBase}/auth/login`, {
-      email: this.email,
-      password: this.password
-    }).subscribe({
-      next: (res) => {
-        this.loading = false;
-        localStorage.setItem('token', res.token);
-        this.router.navigate(['/home']);
-      },
-      error: (e) => {
-        this.loading = false;
-        alert(e?.error?.message ?? 'Credenciales incorrectas');
-        // Si estás probando sin API, puedes usar el fallback:
-        // this.fallbackLogin();
-      }
-    });
-  }
+    // 🔹 Simulación de autenticación sin backend
+    setTimeout(() => {
+      this.loading = false;
 
-  // Opcional: para pruebas sin backend
-  private fallbackLogin() {
-    if (this.email === 'admin@gmail.com' && this.password === '123456') {
-      localStorage.setItem('token', 'FAKE_TOKEN');
-      this.router.navigate(['/home']);
-    } else {
-      alert('Credenciales incorrectas');
-    }
+      // ADMIN
+      if (this.email === 'admin@gmail.com' && this.password === '123456') {
+        localStorage.setItem('token', 'FAKE_TOKEN_ADMIN');
+        localStorage.setItem('rol', 'admin');
+        this.router.navigate(['/admin/dashboardAdmin']);
+      } 
+      // USUARIO NORMAL
+      else if (this.email === 'user@gmail.com' && this.password === '123456') {
+        localStorage.setItem('token', 'FAKE_TOKEN_USER');
+        localStorage.setItem('rol', 'usuario');
+        this.router.navigate(['/home']);
+      } 
+      // CREDENCIALES INCORRECTAS
+      else {
+        alert('Credenciales incorrectas. Usa admin@gmail.com o user@gmail.com con contraseña 123456.');
+      }
+    }, 1000);
   }
 }

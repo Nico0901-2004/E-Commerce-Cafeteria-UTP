@@ -1,0 +1,97 @@
+<div class="dashboard-container">
+    <h2>Dashboard</h2>
+    <hr>
+
+    <!-- Tarjetas de resumen -->
+    <div class="cards-container">
+        <div class="card stat-card">
+            <div class="card-icon productos">
+                <i class="fas fa-mug-hot"></i>
+            </div>
+            <div class="card-info">
+                <h3>Productos</h3>
+                <p>{{ totalProductos }} activos</p>
+            </div>
+        </div>
+
+        <div class="card stat-card">
+            <div class="card-icon pedidos">
+                <i class="fas fa-box"></i>
+            </div>
+            <div class="card-info">
+                <h3>Pedidos del Día</h3>
+                <p>{{ pedidosHoy }} pedidos</p>
+            </div>
+        </div>
+
+        <div class="card stat-card">
+            <div class="card-icon ingresos">
+                <i class="fas fa-coins"></i>
+            </div>
+            <div class="card-info">
+                <h3>Ingresos del Mes</h3>
+                <p>S/ {{ ingresosMes }}</p>
+            </div>
+        </div>
+
+        <div class="card stat-card">
+            <div class="card-icon usuarios">
+                <i class="fas fa-users"></i>
+            </div>
+            <div class="card-info">
+                <h3>Usuarios Registrados</h3>
+                <p>{{ totalUsuarios }}</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gráficos -->
+    <div class="charts-container">
+        <div class="chart-card">
+            <h3>Ventas por Día</h3>
+            <div class="chart-wrapper">
+                <canvas id="ventasPorDiaChart"></canvas>
+            </div>
+        </div>
+
+        <div class="chart-card">
+            <h3>Evolución de Ingresos</h3>
+            <div class="chart-wrapper">
+                <canvas id="ingresosChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alertas -->
+    <div class="alertas-container">
+        <h3>🔔 Alertas de Inventario</h3>
+
+        <div *ngIf="productosBajoStock.length > 0; else sinAlertas">
+            <table class="alertas-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Producto</th>
+                        <th>Stock</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let producto of productosBajoStock">
+                        <td>{{ producto.id }}</td>
+                        <td>{{ producto.nombre }}</td>
+                        <td>{{ producto.stock }}</td>
+                        <td>
+                            <span class="alerta-stock">{{ producto.stock <= 5 ? 'Bajo' : 'Crítico' }}</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <ng-template #sinAlertas>
+            <p class="sin-alertas">No hay productos con bajo stock 🎉</p>
+        </ng-template>
+    </div>
+
+</div>

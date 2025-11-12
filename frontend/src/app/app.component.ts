@@ -1,23 +1,34 @@
 import { Component } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
+import { NgIf } from '@angular/common';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { NgIf } from '@angular/common';
+import { HeaderAdminComponent } from './components/header-admin/header-admin.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HomeComponent, HeaderComponent, FooterComponent, NgIf],
+  imports: [
+    RouterOutlet,
+    NgIf,
+    HeaderComponent,
+    FooterComponent,
+    HeaderAdminComponent
+  ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   title = 'frontend';
 
-  constructor(public router: Router) {}
+  constructor(private router: Router) {}
 
   isLoginPage(): boolean {
     return this.router.url === '/login';
+  }
+
+  isAdmin(): boolean {
+    const rol = localStorage.getItem('rol');
+    return rol === 'admin';
   }
 }

@@ -1,0 +1,129 @@
+/* Estilos generales */
+
+.perfil-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f6f9;
+    padding: 20px;
+}
+
+/* Tarjeta principal */
+
+.perfil-card {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Encabezado */
+
+.perfil-header {
+    background: linear-gradient(135deg, #007bff, #00c6ff);
+    color: #fff;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.perfil-foto img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.perfil-header h2 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.perfil-header .rol {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* Cuerpo del perfil */
+
+.perfil-body {
+    padding: 30px;
+}
+
+/* Sección de información */
+
+.info-section h3 {
+    color: #007bff;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.label {
+    font-weight: 600;
+    color: #333;
+}
+
+.value {
+    color: #555;
+}
+
+/* Botones */
+
+.perfil-actions {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+.btn {
+    border: none;
+    border-radius: 25px;
+    padding: 10px 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn.editar {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn.editar:hover {
+    background-color: #0056b3;
+}
+
+.btn.cerrar-sesion {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn.cerrar-sesion:hover {
+    background-color: #a71d2a;
+}
+
+/* Responsivo */
+
+@media (max-width: 600px) {
+    .perfil-body {
+        padding: 20px;
+    }
+    .info-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .info-item .value {
+        margin-top: 5px;
+    }
+}

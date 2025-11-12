@@ -1,0 +1,44 @@
+<div class="usuarios-container">
+    <!-- ===== ENCABEZADO ===== -->
+    <div class="usuarios-header">
+        <h2>Usuarios</h2>
+    </div>
+
+    <hr />
+
+    <!-- ===== TABLA DE USUARIOS ===== -->
+    <div class="table-responsive">
+        <table class="usuarios-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Teléfono</th>
+                    <th>Último acceso</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let usuario of usuariosPaginados">
+                    <td>{{ usuario.id }}</td>
+                    <td>{{ usuario.nombre }}</td>
+                    <td>{{ usuario.email }}</td>
+                    <td>{{ usuario.telefono }}</td>
+                    <td>{{ usuario.ultimoAcceso | date:'short' }}</td>
+                    <td class="acciones">
+                        <button class="btn-editar" (click)="editarUsuario(usuario)">Editar</button>
+                        <button class="btn-eliminar" (click)="eliminarUsuario(usuario)">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- ===== PAGINACIÓN ===== -->
+    <div class="paginacion">
+        <button class="btn-pagina" (click)="paginaAnterior()" [disabled]="paginaActual === 1">« Anterior</button>
+        <span>Página {{ paginaActual }} de {{ totalPaginas }}</span>
+        <button class="btn-pagina" (click)="paginaSiguiente()" [disabled]="paginaActual === totalPaginas">Siguiente »</button>
+    </div>
+</div>

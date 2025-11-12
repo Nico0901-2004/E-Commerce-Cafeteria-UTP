@@ -1,0 +1,50 @@
+<div class="pedidos-container">
+    <!-- ===== ENCABEZADO ===== -->
+    <div class="pedidos-header">
+        <h2>Pedidos</h2>
+    </div>
+
+    <hr />
+
+    <!-- ===== TABLA DE PEDIDOS ===== -->
+    <div class="table-responsive">
+        <table class="pedidos-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>ID Usuario</th>
+                    <th>Estado</th>
+                    <th>Fecha de Creación</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pedido of pedidosPaginados">
+                    <td>{{ pedido.id }}</td>
+                    <td>{{ pedido.idUser }}</td>
+                    <td>
+                        <span [class.estado-listo]="pedido.estado === 'Listo'" [class.estado-entregado]="pedido.estado === 'Entregado'">
+                            {{ pedido.estado }}
+                        </span>
+                    </td>
+                    <td>{{ pedido.fechaCreacion }}</td>
+                    <td class="acciones">
+                        <button class="btn-editar" (click)="editarPedido(pedido)">Editar</button>
+                        <button class="btn-eliminar" (click)="eliminarPedido(pedido)">Eliminar</button>
+                    </td>
+                </tr>
+
+                <tr *ngIf="pedidosPaginados.length === 0">
+                    <td colspan="5">No hay pedidos registrados</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- ===== PAGINACIÓN ===== -->
+    <div class="paginacion">
+        <button class="btn-pagina" (click)="paginaAnterior()" [disabled]="paginaActual === 1">« Anterior</button>
+        <span>Página {{ paginaActual }} de {{ totalPaginas }}</span>
+        <button class="btn-pagina" (click)="paginaSiguiente()" [disabled]="paginaActual === totalPaginas">Siguiente »</button>
+    </div>
+</div>

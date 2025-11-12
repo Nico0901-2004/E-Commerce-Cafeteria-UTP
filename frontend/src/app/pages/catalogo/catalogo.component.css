@@ -1,94 +1,145 @@
-/* Contenedor general para todo el catálogo */
+/* ======= ESTRUCTURA PRINCIPAL ======= */
+
+.catalogo-page {
+  padding: 1rem 2rem;
+  background-color: #fafafa;
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .catalogo-container {
-    display: flex;
-    padding-top: 70px;
-    /* Ajustamos para que el contenido quede debajo del header */
-    gap: 20px;
-    /* Añadir un pequeño espacio entre el sidebar y el contenedor de productos */
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1400px; /* 🔹 limita el ancho total para mejor visual */
 }
 
+/* ======= SIDEBAR ======= */
 
-/* Contenedor para los productos, ahora con el margen adecuado para separar las tarjetas del sidebar */
-
-.product-container-wrapper {
-    flex: 1;
-    /* Ocupa todo el espacio restante disponible */
-    margin-left: 20px;
-    /* Añadimos un margen para separar las tarjetas del sidebar */
+.sidebar-section {
+  flex: 0 0 260px;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  height: fit-content;
+  align-self: flex-start;
 }
 
+/* ======= CONTENIDO PRINCIPAL ======= */
 
-/* En el contenedor de los productos, configuramos un grid con 3 columnas */
-
-.product-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    /* Espaciado entre las tarjetas */
-    margin-top: 20px;
-    /* Espacio por encima del contenedor de productos */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0; /* 🔹 evita overflow horizontal */
 }
 
+/* Encabezado */
 
-/* Si el contenedor se hace más pequeño (por ejemplo, en pantallas móviles), cambiamos a 2 columnas */
-
-@media (max-width: 768px) {
-    .product-container {
-        grid-template-columns: repeat(2, 1fr);
-        /* 2 columnas en pantallas más pequeñas */
-    }
+.product-header {
+  margin-bottom: 1.5rem;
 }
 
-
-/* Para pantallas aún más pequeñas (móviles), usamos una sola columna */
-
-@media (max-width: 480px) {
-    .product-container {
-        grid-template-columns: 1fr;
-        /* 1 columna en pantallas muy pequeñas */
-    }
+.product-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
 }
 
-
-/* Estilo para cada categoría y su título */
-
-.product-container-wrapper h2 {
-    text-transform: uppercase;
-    /* Convertir el texto a mayúsculas */
-    font-size: 2rem;
-    /* Hacer el texto más grande */
-    font-weight: bold;
-    /* Hacer que el texto sea negrita */
-    margin-bottom: 20px;
-    /* Separación entre el título y los productos */
-    color: #7F4840;
-    /* Color que coincide con el estilo de las categorías */
-    margin-top: 15px;
+.product-divider {
+  border: none;
+  border-top: 2px solid #ccc;
+  margin-top: 0.5rem;
 }
 
+/* ======= LISTA DE PRODUCTOS ======= */
 
-/* Estilo para la línea horizontal debajo del título */
-
-.product-container-wrapper hr {
-    margin: 10px 0;
-    border-top: 2px solid #ddd;
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 🔹 mejor distribución */
+  gap: 2rem; /* 🔹 más espacio entre tarjetas */
+  justify-items: center; /* centra las tarjetas */
+  align-items: start;
+  width: 100%;
 }
 
+.product-list app-product-card {
+  width: 100%;
+  max-width: 270px; /* 🔹 mantiene proporción */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
 
-/* Ajustes generales para el header */
+.product-list app-product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+}
 
-app-header {
+/* ======= RESPONSIVE ======= */
+
+@media (max-width: 1200px) {
+  .catalogo-container {
+    gap: 1.5rem;
+  }
+
+  .sidebar-section {
+    flex: 0 0 220px;
+    padding: 1.25rem;
+  }
+
+  .product-list {
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 992px) {
+  .catalogo-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .sidebar-section {
     width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: #343a40;
-    color: white;
-    padding: 15px;
-    z-index: 999;
+    max-width: 700px;
+    order: 1;
+  }
+
+  .main-content {
+    order: 2;
+    width: 100%;
+  }
+
+  .product-list {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    justify-items: center;
+  }
 }
 
-app-header h1 {
-    margin: 0;
+@media (max-width: 576px) {
+  .catalogo-page {
+    padding: 1rem;
+  }
+
+  .product-title {
+    font-size: 1.4rem;
+    text-align: center;
+  }
+
+  .sidebar-section {
+    padding: 1rem;
+  }
+
+  .product-list {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
 }

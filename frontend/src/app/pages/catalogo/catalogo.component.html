@@ -1,16 +1,27 @@
-<app-header></app-header>
+<!-- ===== CONTENIDO PRINCIPAL ===== -->
+<div class="catalogo-page">
+    <div class="catalogo-container">
+        <!-- SIDEBAR -->
+        <div class="sidebar-section">
+            <app-sidebar (categorySelected)="onCategorySelected($event)"></app-sidebar>
+        </div>
 
-<div class="catalogo-container">
-    <!-- Sidebar -->
-    <app-sidebar (categorySelected)="onCategorySelected($event)"></app-sidebar>
+        <!-- CONTENIDO PRINCIPAL -->
+        <div class="main-content">
+            <!-- Encabezado -->
+            <div class="product-header">
+                <h2 class="product-title">{{ selectedCategory }}</h2>
+                <hr class="product-divider" />
+            </div>
 
-    <!-- Contenedor de productos -->
-    <div class="product-container-wrapper">
-        <h2>{{ selectedCategory }}
-            <hr>
-        </h2>
-        <div class="product-container">
-            <app-product-card *ngFor="let product of getProductsByCategory(selectedCategory)" [product]="product"></app-product-card>
+            <!-- Lista de productos -->
+            <div class="product-list">
+                <app-product-card *ngFor="let product of getProductsByCategory(selectedCategory)" [product]="product" (productClick)="openModal(product)">
+                </app-product-card>
+            </div>
         </div>
     </div>
 </div>
+
+<!-- MODAL -->
+<app-modal-product [product]="selectedProduct"></app-modal-product>

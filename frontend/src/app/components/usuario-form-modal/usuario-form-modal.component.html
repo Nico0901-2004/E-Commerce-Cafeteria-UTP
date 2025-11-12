@@ -1,0 +1,44 @@
+<div class="modal-overlay" (click)="cerrarModal()"></div>
+
+<div class="modal-container">
+    <div class="modal-header">
+        <h2>{{ titulo }}</h2>
+        <button class="close-btn" (click)="cerrarModal()">×</button>
+    </div>
+
+    <div class="modal-body">
+        <form (ngSubmit)="guardarCambios()" #usuarioForm="ngForm">
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" [(ngModel)]="usuarioTemp.nombre" required />
+            </div>
+
+            <div class="form-group">
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido" name="apellido" [(ngModel)]="usuarioTemp.apellido" required />
+            </div>
+
+            <div class="form-group">
+                <label for="correo">Correo electrónico:</label>
+                <input type="email" id="correo" name="correo" [(ngModel)]="usuarioTemp.correo" required />
+            </div>
+
+            <div class="form-group">
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" [(ngModel)]="usuarioTemp.telefono" maxlength="9" pattern="[0-9]{9}" required />
+            </div>
+
+            <div class="form-group">
+                <label for="direccion">Dirección:</label>
+                <textarea id="direccion" name="direccion" [(ngModel)]="usuarioTemp.direccion" rows="3"></textarea>
+            </div>
+
+            <div class="modal-actions">
+                <button type="button" class="btn-cancelar" (click)="cerrarModal()">Cancelar</button>
+                <button type="submit" class="btn-guardar" [disabled]="!usuarioForm.valid">
+          Guardar
+        </button>
+            </div>
+        </form>
+    </div>
+</div>

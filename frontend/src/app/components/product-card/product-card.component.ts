@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Producto } from '../../models/Product';
 import { CommonModule } from '@angular/common';
 import { CartService } from '../../services/cart.service';
@@ -12,11 +12,19 @@ import { RouterLink } from "@angular/router";
   styleUrls: ['./product-card.component.css']
 })
 export class ProductCardComponent {
-  @Input() product!: Producto;  // Recibe un solo producto como entrada
+  @Input() product!: Producto;
+  @Output() productClick = new EventEmitter<Producto>(); // 🔹 Evento para el clic del card
 
-  constructor(private cartService: CartService){}
+  constructor(private cartService: CartService) {}
 
-  addToCart() {
+  // 🔹 Método que emite el producto al hacer clic en la tarjeta
+  onCardClick() {
+    this.productClick.emit(this.product);
+  }
+
+  // 🔹 Método para agregar al carrito sin abrir el modal
+  addToCart(event: Event) {
+    event.stopPropagation(); // Evita que el clic del botón dispare el modal
     this.cartService.addItem({
       id: this.product.id,
       name: this.product.descripcion,

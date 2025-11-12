@@ -1,11 +1,12 @@
-<div class="card" style="width: 18rem;">
-    <img [src]="product.imagen" class="card-img-top" alt="{{product.descripcion}}">
-    <div class="card-body">
-        <h5 class="card-title">{{product.descripcion}}</h5>
-        <p class="card-text">${{product.precio}}</p>
-        <a routerLink="/carrito" class="btn btn-primary">
-            <i class="bi bi-plus-circle"></i>
-            <button (click)="addToCart()">Agregar al carrito</button>
-        </a>
-    </div>
+<div class="card" style="width: 18rem;" (click)="onCardClick()">
+  <img [src]="product.imagen" class="card-img-top" alt="{{ product.descripcion }}">
+  <div class="card-body">
+    <h5 class="card-title">{{ product.descripcion }}</h5>
+    <p class="card-text">${{ product.precio }}</p>
+
+    <!-- 🔹 Botón que agrega al carrito sin interferir con el clic del card -->
+    <button (click)="addToCart($event)" class="btn btn-primary">
+      <i class="bi bi-plus-circle"></i> Agregar al carrito
+    </button>
+  </div>
 </div>

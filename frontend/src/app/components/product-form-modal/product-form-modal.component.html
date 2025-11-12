@@ -1,0 +1,35 @@
+<div class="modal-backdrop" (click)="cerrarModal()"></div>
+
+<div class="modal-contenido">
+    <h2>{{ modo === 'crear' ? 'Añadir Producto' : 'Editar Producto' }}</h2>
+
+    <form (ngSubmit)="guardarProducto()" #productoForm="ngForm">
+
+        <div class="form-group">
+            <label>Nombre del producto</label>
+            <input type="text" name="nombre" [(ngModel)]="producto.nombre" required placeholder="Ej. Café Expreso" />
+        </div>
+
+        <div class="form-group">
+            <label>Precio (S/)</label>
+            <input type="number" name="precio" [(ngModel)]="producto.precio" required placeholder="Ej. 12.50" />
+        </div>
+
+        <div class="form-group">
+            <label>Stock</label>
+            <input type="number" name="stock" [(ngModel)]="producto.stock" required placeholder="Ej. 10" />
+        </div>
+
+        <div class="form-group">
+            <label>Descripción</label>
+            <textarea name="descripcion" [(ngModel)]="producto.descripcion" placeholder="Breve descripción del producto"></textarea>
+        </div>
+
+        <div class="botones">
+            <button type="button" class="btn-cancelar" (click)="cerrarModal()">Cancelar</button>
+            <button type="submit" class="btn-guardar">
+        {{ modo === 'crear' ? 'Guardar' : 'Actualizar' }}
+      </button>
+        </div>
+    </form>
+</div>

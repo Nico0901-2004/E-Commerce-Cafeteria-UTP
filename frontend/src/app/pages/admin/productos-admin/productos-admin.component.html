@@ -1,0 +1,58 @@
+<div class="productos-container">
+    <!-- ===== ENCABEZADO ===== -->
+    <div class="productos-header">
+        <h2>Productos</h2>
+        <button class="btn-crear" (click)="crearProducto()">Crear Producto</button>
+    </div>
+
+    <hr />
+
+    <!-- ===== TABLA DE PRODUCTOS ===== -->
+    <div class="table-responsive">
+        <table class="productos-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                    
+                    <th>Activo</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let producto of productosPaginados">
+                    <td>{{ producto.id }}</td>
+                    <td>{{ producto.nombre }}</td>
+                    <td>{{ producto.descripcion }}</td>
+                    <td>{{ producto.precio | currency:'USD' }}</td>
+                    <td>{{ producto.stock }}</td>
+                    
+                    <td>
+                        <span [class.activo]="producto.isActive" [class.inactivo]="!producto.isActive">
+                            {{ producto.isActive ? 'Sí' : 'No' }}
+                        </span>
+                    </td>
+                    <td class="acciones">
+                        <button class="btn-editar" (click)="editarProducto(producto)">Editar</button>
+                        <button class="btn-eliminar" (click)="desactivarProducto(producto)">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- ===== PAGINACIÓN ===== -->
+    <div class="paginacion">
+        <button class="btn-pagina" (click)="paginaAnterior()" [disabled]="paginaActual === 1">« Anterior</button>
+        <span>Página {{ paginaActual }} de {{ totalPaginas }}</span>
+        <button class="btn-pagina" (click)="paginaSiguiente()" [disabled]="paginaActual === totalPaginas">Siguiente »</button>
+    </div>
+
+    <!-- ===== MODAL ===== -->
+    <app-product-form-modal *ngIf="mostrarModal" [modo]="modoModal" [productoSeleccionado]="productoSeleccionado" (cerrar)="cerrarModal()" (guardar)="guardarProducto($event)">
+    </app-product-form-modal>
+</div>
+

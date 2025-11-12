@@ -1,0 +1,47 @@
+<div class="pedidos-container">
+  <div class="pedidos-header">
+    <h2>Mi historial de pedidos</h2>
+  </div>
+
+  <hr />
+
+  <div class="table-responsive">
+    <table class="pedidos-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Productos</th>
+          <th>Total (S/)</th>
+          <th>Estado</th>
+          <th>Fecha</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pedido of pedidosPaginados">
+          <td>{{ pedido.id }}</td>
+          <td>{{ pedido.productos.join(', ') }}</td>
+          <td>{{ pedido.total.toFixed(2) }}</td>
+          <td>
+            <span 
+              [class.estado-listo]="pedido.estado === 'Listo'"
+              [class.estado-entregado]="pedido.estado === 'Entregado'"
+              [class.estado-pendiente]="pedido.estado === 'Pendiente'">
+              {{ pedido.estado }}
+            </span>
+          </td>
+          <td>{{ pedido.fecha }}</td>
+        </tr>
+
+        <tr *ngIf="pedidosPaginados.length === 0">
+          <td colspan="5">No tienes pedidos registrados.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="paginacion">
+    <button class="btn-pagina" (click)="paginaAnterior()" [disabled]="paginaActual === 1">« Anterior</button>
+    <span>Página {{ paginaActual }} de {{ totalPaginas }}</span>
+    <button class="btn-pagina" (click)="paginaSiguiente()" [disabled]="paginaActual === totalPaginas">Siguiente »</button>
+  </div>
+</div>

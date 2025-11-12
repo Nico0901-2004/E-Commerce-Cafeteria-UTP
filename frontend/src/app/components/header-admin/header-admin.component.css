@@ -1,0 +1,140 @@
+/* ===== Colores base ===== */
+
+.bg-brown {
+    background-color: #7f4840 !important;
+}
+
+/* ===== NAVBAR ADMIN ===== */
+
+.admin-navbar {
+    background-color: #7f4840;
+    color: #fff;
+    padding: 0.8rem 2rem;
+    font-family: 'Poppins', sans-serif;
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+/* ===== CONTENEDOR GENERAL ===== */
+
+.admin-navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* ===== LOGO ===== */
+
+.admin-logo .logo-text {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.admin-logo .logo-text:hover {
+    color: #ffcc00;
+}
+
+/* ===== ENLACES PRINCIPALES ===== */
+
+.admin-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.admin-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 6px;
+    padding: 8px 12px;
+    transition: color 0.2s, background-color 0.2s;
+    cursor: pointer;
+}
+
+.admin-links a:hover,
+.admin-links a.active-link {
+    background-color: #6b3b33;
+    color: #fff !important;
+}
+
+/* ===== BOTÓN CERRAR SESIÓN ===== */
+
+.logout-btn {
+    background-color: transparent;
+    border: 2px solid #ffcc00;
+    color: #ffcc00;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.logout-btn:hover {
+    background-color: #ffcc00;
+    color: #7f4840;
+}
+
+/* ===== MENÚ HAMBURGUESA ===== */
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 4px 0;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 992px) {
+    .admin-links {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: #7f4840;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.2rem;
+        padding: 1.5rem 0;
+        display: none;
+        z-index: 1020;
+    }
+    .admin-links.active {
+        display: flex;
+    }
+    .menu-toggle {
+        display: flex;
+    }
+    .logout-btn {
+        font-size: 0.9rem;
+        padding: 0.35rem 0.8rem;
+    }
+    .admin-logo .logo-text {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .logout-btn {
+        font-size: 0.85rem;
+        padding: 4px 10px;
+    }
+    .menu-toggle .bar {
+        width: 22px;
+    }
+}

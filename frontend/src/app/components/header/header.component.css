@@ -1,129 +1,113 @@
-/* Cambiar el color de fondo */
+/* ===== Colores base ===== */
 
-.navbar {
-    background-color: #7F4840 !important;
-    /* Fondo marrón claro */
+.bg-brown {
+    background-color: #7f4840 !important;
 }
 
+/* ===== Contenedor general ===== */
 
-/* Mejorar el tamaño del texto en los enlaces */
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* ===== Marca / logo ===== */
 
 .navbar-brand {
-    font-size: 2rem;
-    /* Aumentar el tamaño de la fuente del logo */
-    color: #fff !important;
-    /* Asegurar que el logo sea blanco */
+    font-size: 1.8rem;
+    letter-spacing: 1px;
 }
+
+/* ===== Enlaces del navbar ===== */
 
 .navbar-nav .nav-link {
-    font-size: 1.25rem;
-    /* Aumentar el tamaño de los enlaces */
+    font-weight: 500;
+    transition: color 0.2s, background-color 0.2s;
+    border-radius: 6px;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    background-color: #6b3b33;
     color: #fff !important;
-    /* Asegurarse de que los enlaces sean blancos */
 }
 
-.navbar-nav .nav-link:hover {
-    color: #f8f9fa;
-    /* Color cuando el enlace se pasa el ratón por encima */
+/* ===== Buscador ===== */
+
+.header-search {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
-
-
-/* Mejorar los íconos */
-
-.nav-link i {
-    font-size: 1.75rem;
-    /* Aumentar el tamaño de los íconos */
-    color: #fff;
-    /* Hacer los íconos blancos para que contrasten con el fondo */
-}
-
-
-/* Asegurarse de que los elementos del navbar estén más juntos y pegados al lado derecho */
-
-.navbar-nav.ms-auto {
-    margin-left: auto;
-    /* Asegura que los íconos estén pegados al lado derecho */
-    padding-left: 0;
-    /* Elimina cualquier relleno adicional que pueda existir a la izquierda */
-}
-
-
-/* Mejorar la barra de búsqueda */
 
 .form-control {
-    width: 250px;
-    /* Ajustar el ancho de la barra de búsqueda */
+    border-radius: 8px;
+    border: none;
 }
 
+/* ===== Iconos ===== */
 
-/* Mejorar los íconos */
-
-.navbar-nav .nav-item {
-    margin-left: 15px;
-    /* Este es el espacio entre los íconos */
+.header-icons .nav-link {
+    padding: 6px 8px;
 }
 
-.navbar-nav .nav-item:last-child {
-    margin-right: 0;
-    /* Elimina cualquier margen a la derecha del último ícono */
+.header-icons i {
+    font-size: 1.3rem;
 }
 
+/* ===== Dropdown: apariencia ===== */
 
-/* Evitar que el dropdown se desborde fuera del navbar */
-
-.navbar-nav .dropdown-menu {
-    max-height: 300px;
-    /* Limitar la altura del dropdown */
-    overflow-y: auto;
-    /* Añadir scroll si el contenido es mayor que la altura */
-    position: absolute;
-    /* Asegurar que el dropdown no se desborde */
-    right: 0;
-    /* Asegurar que el dropdown esté alineado con el lado derecho */
-    left: auto;
-    /* Evitar que se desborde hacia la izquierda */
+.dropdown-menu {
+    background-color: #fff;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+    margin-top: 6px;
 }
 
+.dropdown-item:hover {
+    background-color: #f2f2f2;
+}
 
-/* Asegurarse de que el dropdown se vea correctamente en pantallas pequeñas */
+/* ===== Asegura que nada cubra el navbar (evita bloqueos de clicks) ===== */
 
-@media (max-width: 767px) {
-    .navbar-nav .dropdown-menu {
-        position: static;
-        /* Para evitar que se desplace fuera del contenedor */
-        min-width: 100%;
-        /* Asegurar que el dropdown ocupe todo el ancho disponible */
-        background-color: #7F4840;
-        /* Para que el fondo del dropdown coincida con el navbar */
+.main-header,
+.navbar,
+.header-container {
+    position: relative;
+    z-index: 1030;
+    /* por encima del contenido */
+    pointer-events: auto;
+}
+
+/* ===== Responsive ===== */
+
+@media (max-width: 992px) {
+    .navbar-nav {
+        text-align: center;
     }
-    .navbar-nav .dropdown-toggle::after {
-        content: none;
-        /* Eliminar el ícono de la flecha hacia abajo en dispositivos móviles */
+    .header-search {
+        margin: 12px 0;
+        justify-content: center;
+        width: 100%;
+    }
+    .navbar-brand {
+        font-size: 1.5rem;
     }
 }
 
-
-/* header.component.css */
-
-nav.navbar {
-    position: fixed;
-    /* Fija el header en la parte superior */
-    top: 0;
-    /* Lo coloca en la parte superior de la pantalla */
-    left: 0;
-    /* Asegura que esté alineado a la izquierda */
-    width: 100%;
-    /* Ocupa todo el ancho de la pantalla */
-    z-index: 1000;
-    /* Asegura que el header esté encima de otros elementos */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    /* Añadir sombra ligera para darle profundidad */
-}
-
-
-/* Añadir un margen superior al contenido para que no se superponga al header fijo */
-
-body {
-    padding-top: 60px;
-    /* Ajusta este valor si el header es más alto */
+@media (max-width: 576px) {
+    .form-control {
+        width: 150px;
+    }
+    .btn {
+        font-size: 0.9rem;
+        padding: 4px 10px;
+    }
+    .header-icons i {
+        font-size: 1.15rem;
+    }
 }
