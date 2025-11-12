@@ -1,66 +1,58 @@
-<div class="login-wrapper">
-  <!-- Caja del formulario -->
-  <div class="login-container card">
-    <!-- Logo -->
-    <div class="login-logo">
-      <img src="/utp.png" alt="Logo UTP" />
-      <h2>CAFETÍN</h2>
+<div class="login-container">
+  <div class="login-box">
+    <div class="login-header">
+      <img src="/logo-utepino.png" alt="Logo UTP" class="logo">
+      <h2>Bienvenido</h2>
+      <p>Inicia sesión con tu cuenta</p>
     </div>
 
-    <!-- Formulario -->
-    <form #f="ngForm" (ngSubmit)="onLogin(f)" novalidate>
-      <!-- Email -->
-      <div class="form-group">
-        <label for="email">Usuario</label>
-        <div class="input-icon">
-          <input 
-            type="email" 
-            id="email" 
-            [(ngModel)]="email" 
-            name="email" 
-            placeholder="Ingrese su correo" 
-            required 
-            class="form-control"
-            autocomplete="email"
-          />
-          <i class="fas fa-user"></i>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+
+      <div class="input-group">
+        <label for="email">Correo Electrónico</label>
+        <div class="input-wrapper">
+          <i class="fas fa-envelope"></i>
+          <input type="email" id="email" 
+                 formControlName="email"
+                 placeholder="correo@utp.edu.pe"
+                 required
+                 [class.is-invalid]="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+        </div>
+        <div *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)" class="error-message">
+          <small *ngIf="loginForm.get('email')?.errors?.['required']">El correo es obligatorio.</small>
+          <small *ngIf="loginForm.get('email')?.errors?.['email']">El formato del correo no es válido.</small>
         </div>
       </div>
 
-      <!-- Contraseña -->
-      <div class="form-group">
+      <div class="input-group">
         <label for="password">Contraseña</label>
-        <div class="input-icon">
-          <input 
-            [type]="showPass ? 'text' : 'password'" 
-            id="password" 
-            [(ngModel)]="password" 
-            name="password" 
-            placeholder="Ingrese su contraseña" 
-            required 
-            minlength="6"
-            class="form-control"
-            autocomplete="current-password"
-          />
+        <div class="input-wrapper">
+          <i class="fas fa-lock"></i>
+          <input [type]="showPass ? 'text' : 'password'" 
+                 id="password" 
+                 formControlName="password"
+                 placeholder="Contraseña"
+                 required
+                 [class.is-invalid]="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+          
           <button type="button" class="toggle-eye" (click)="showPass = !showPass">
             <i class="fas" [class.fa-eye]="!showPass" [class.fa-eye-slash]="showPass"></i>
           </button>
         </div>
+        <div *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)" class="error-message">
+          <small *ngIf="loginForm.get('password')?.errors?.['required']">La contraseña es obligatoria.</small>
+        </div>
       </div>
 
-      <!-- Botones -->
-      <button type="submit" class="btn-login">INGRESAR</button>
-      <a class="btn-secondary" routerLink="/register">REGÍSTRATE</a>
+      <div *ngIf="errorMessage" class="error-message api-error">
+        {{ errorMessage }}
+      </div>
 
-      <!-- Enlaces adicionales -->
-      <div class="extra-links">
-        <a href="javascript:void(0)">¿Olvidaste tu contraseña?</a>
+      <button type="submit" class="login-button" [disabled]="loginForm.invalid">Ingresar</button>
+
+      <div class="register-link">
+        <p>¿No tienes una cuenta? <a routerLink="/register">Regístrate</a></p>
       </div>
     </form>
-  </div>
-
-  <!-- Imagen lateral -->
-  <div class="login-image">
-    <img src="/cafesito.jpg" alt="cafesito" />
   </div>
 </div>

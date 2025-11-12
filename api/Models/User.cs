@@ -1,3 +1,5 @@
+using System.Collections.Generic; // Agregado
+
 namespace api.Models;
 
 public class User
@@ -10,4 +12,8 @@ public class User
     public bool IsActive { get; set; } = true;
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     public DateTime? UpdatedAt { get; set; }
+
+    // --- AGREGADO PARA RELACIÓN CON ROLES ---
+    public int? RoleId { get; set; }
+    public virtual Roles? Role { get; set; }
 }

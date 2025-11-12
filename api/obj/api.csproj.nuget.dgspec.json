@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\RenzoLaptop\\Desktop\\Proyecto\\E-Commerce-Cafeteria-UTP\\api\\api.csproj": {}
+    "C:\\Users\\USUARIO\\Documents\\Nueva carpeta\\E-Commerce-Cafeteria-UTP\\api\\api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\RenzoLaptop\\Desktop\\Proyecto\\E-Commerce-Cafeteria-UTP\\api\\api.csproj": {
+    "C:\\Users\\USUARIO\\Documents\\Nueva carpeta\\E-Commerce-Cafeteria-UTP\\api\\api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\RenzoLaptop\\Desktop\\Proyecto\\E-Commerce-Cafeteria-UTP\\api\\api.csproj",
+        "projectUniqueName": "C:\\Users\\USUARIO\\Documents\\Nueva carpeta\\E-Commerce-Cafeteria-UTP\\api\\api.csproj",
         "projectName": "api",
-        "projectPath": "C:\\Users\\RenzoLaptop\\Desktop\\Proyecto\\E-Commerce-Cafeteria-UTP\\api\\api.csproj",
-        "packagesPath": "C:\\Users\\RenzoLaptop\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\RenzoLaptop\\Desktop\\Proyecto\\E-Commerce-Cafeteria-UTP\\api\\obj\\",
+        "projectPath": "C:\\Users\\USUARIO\\Documents\\Nueva carpeta\\E-Commerce-Cafeteria-UTP\\api\\api.csproj",
+        "packagesPath": "C:\\Users\\USUARIO\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\USUARIO\\Documents\\Nueva carpeta\\E-Commerce-Cafeteria-UTP\\api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\RenzoLaptop\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\USUARIO\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -85,7 +85,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.415/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.414/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
